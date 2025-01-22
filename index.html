@@ -1,68 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cebox Creative Framework</title>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/hafizalvian/cebox-creative/master/src/Assets/cebox.css">
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/hafizalvian/cebox-creative/master/src/Assets/components/button.css">
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/hafizalvian/cebox-creative/master/src/Assets/components/tables.css">
-    <style>
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .demo {
-            margin: 2rem 0;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        .button-showcase {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        .documentation {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        pre {
-            background: #2d3748;
-            color: #fff;
-            padding: 1rem;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Cebox Creative Framework</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cebox Creative Framework</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/cebox.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/components/button.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/components/tables.css">
         
-        <section class="demo">
-            <h2>Button Components</h2>
-            <div class="button-showcase">
-                <button class="cebox-btn cebox-primary">Primary Button</button>
-                <button class="cebox-btn cebox-success">Success Button</button>
-                <button class="cebox-btn cebox-outline">Outline Button</button>
-            </div>
-        </section>
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+<body>
+    <!-- Header -->
+    <header class="cebox-header">
+        <nav class="nav-container">
+            <div class="logo">Cebox Framework</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#docs">Documentation</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <section class="documentation">
-            <h2>Getting Started</h2>
-            <pre><code>
+    <!-- Main Content -->
+    <main>
+        <div class="hero-section">
+            <h1>Welcome to Cebox Creative Framework</h1>
+            <p>Modern, Elegant, and Responsive Design Framework</p>
+        </div>
+
+        <div class="container">
+            <!-- Components Section -->
+            <section class="demo-section" id="components">
+                <h2>Components</h2>
+                
+                <!-- Buttons -->
+                <div class="component-card">
+                    <h3>Buttons</h3>
+                    <div class="button-showcase">
+                        <button class="cebox-btn cebox-primary">Primary Button</button>
+                        <button class="cebox-btn cebox-success">Success Button</button>
+                        <button class="cebox-btn cebox-outline">Outline Button</button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="component-card">
+                    <h3>Tables</h3>
+                    <div class="table-responsive">
+                        <table class="cebox-table">
+                            <thead>
+                                <tr>
+                                    <th>Header 1</th>
+                                    <th>Header 2</th>
+                                    <th>Header 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Data 1</td>
+                                    <td>Data 2</td>
+                                    <td>Data 3</td>
+                                </tr>
+                                <tr>
+                                    <td>Data 4</td>
+                                    <td>Data 5</td>
+                                    <td>Data 6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documentation -->
+            <section class="documentation" id="docs">
+                <h2>Documentation</h2>
+                <div class="code-block">
+                    <pre><code>
 // Include the framework
 require_once 'src/Components/CeboxButton.php';
 
 // Create a button
 $button = new CeboxButton();
 $button->setTeks('Click Me')
-       ->setClass('cebox-btn cebox-primary');</code></pre>
-        </section>
-    </div>
+       ->setClass('cebox-btn cebox-primary');
+                    </code></pre>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="cebox-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Cebox Framework</h4>
+                <p>Modern and elegant design framework for professional web development</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#components">Components</a></li>
+                    <li><a href="#docs">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cebox Framework. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
