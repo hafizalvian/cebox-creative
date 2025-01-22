@@ -4,194 +4,337 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cebox Creative Framework</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/cebox.css">
+        <link rel="stylesheet" href="https://balebatsnacks.com//src/Assets/cebox.css">
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/components/button.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/components/tables.css">
+
         
         <!-- Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
     <style>
-        :root {
-        --primary-color: #ff6b6b;
-        --primary-light: #ffd8d8;
-        --secondary-color: #4a90e2;
-        --success-color: #2ecc71;
-        --text-color: #333333;
-        --light-bg: #f8f9fa;
-        --white: #ffffff;
-        --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    :root {
+    /* Soft Green Color Palette */
+    --primary-color: #4CAF50;     /* Main Green */
+    --primary-light: #81C784;     /* Light Green */
+    --primary-dark: #388E3C;      /* Dark Green */
+    --primary-pale: #E8F5E9;      /* Pale Green */
+    --text-color: #2E7D32;        /* Text Green */
+    --light-bg: #F1F8E9;          /* Background Green */
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+    }
+    
+    /* Reset & Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--light-bg);
+    }
+    
+    /* Header Styles */
+    .cebox-header {
+        background: var(--white);
+        box-shadow: var(--shadow);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+    }
+    
+    .nav-menu a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .nav-menu a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover::after {
+        width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+        padding: 6rem 2rem;
+        text-align: center;
+        color: var(--white);
+        margin-top:30px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Component Section Styles */
+    .demo-section {
+        padding: 3rem 0;
+    }
+    
+    .demo-section h2 {
+        color: var(--primary-dark);
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        position: relative;
+    }
+    
+    .demo-section h2::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 1rem auto;
+    }
+    
+    .component-card h3 {
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    /* Component Cards */
+    .component-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 1.5rem 0;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease;
+    }
+    
+    .component-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .button-showcase {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1.5rem 0;
+    }
+    
+    /* Documentation Styles */
+    .documentation-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2.5rem;
+        background: var(--white);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        margin: 2rem auto;
+    }
+    
+    .doc-title {
+        color: var(--primary-dark);
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        border-bottom: 3px solid var(--primary-light);
+        padding-bottom: 1rem;
+        grid-column: 1 / -1;
+    }
+    
+    .doc-section {
+        background: var(--primary-pale);
+        padding: 2rem;
+        border-radius: 12px;
+        border-left: 4px solid var(--primary-color);
+        min-height: 250px;
+        transition: all 0.3s ease;
+    }
+    
+    .doc-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(76, 175, 80, 0.15);
+    }
+    
+    /* Footer Styles */
+    .cebox-footer {
+        background: var(--primary-dark);
+        color: var(--white);
+        padding: 4rem 0 1rem;
+        margin-top: 4rem;
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+    }
+    
+    .footer-section h4 {
+        color: var(--primary-light);
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 1rem;
+    }
+    
+    .footer-section ul li a {
+        color: var(--primary-pale);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .footer-section ul li a:hover {
+        color: var(--white);
+        transform: translateX(5px);
+    }
+    
+    /* Footer Bottom */
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 3rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .footer-bottom p {
+        color: var(--primary-pale);
+        font-size: 0.9rem;
+    }
+
+    
+    .social-links {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 1.8rem;
+    }
+    
+    .social-links a {
+        color: var(--primary-light);
+        transition: transform 0.3s ease;
+    }
+    
+    .social-links a:hover {
+        transform: scale(1.2);
+        color: var(--white);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .documentation-container {
+            padding: 1.5rem;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        .hero-section h1 {
+            font-size: 2rem;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-        
-        /* Header Styles */
-        .cebox-header {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
+    }
+    
+    @media (max-width: 768px) {
         .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Main Content Styles */
-        main {
-            margin-top: 60px;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-            padding: 4rem 2rem;
-            text-align: center;
-            color: var(--white);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .component-card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Table Styles */
-        .table-responsive {
-            overflow-x: auto;
-        }
-        
-        .cebox-table {
+            position: fixed;
+            top: 60px;
+            left: -100%;
             width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
+            height: calc(100vh - 60px);
+            background: var(--white);
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            transition: left 0.3s ease;
+        }
+    
+        .nav-menu.active {
+            left: 0;
+        }
+    
+        .doc-section {
+            min-height: auto;
+        }
+    
+        .button-showcase button {
+            width: 100%;
         }
         
-        .cebox-table th,
-        .cebox-table td {
-            padding: 1rem;
-            border: 1px solid #ddd;
+        .demo-section h2 {
+        font-size: 1.8rem;
         }
         
-        .cebox-table th {
-            background: var(--primary-light);
-            color: var(--text-color);
+        .component-card h3 {
+            font-size: 1.3rem;
         }
-        
-        /* Footer Styles */
-        .cebox-footer {
-            background: var(--text-color);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-            margin-top: 4rem;
+    }
+    
+    @media (max-width: 480px) {
+        .logo {
+            font-size: 1.4rem;
         }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+    
+        .hero-section {
+            padding: 4rem 1rem;
         }
-        
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+    
+        .hero-section h1 {
+            font-size: 1.8rem;
         }
-        
-        .footer-section ul {
-            list-style: none;
+    
+        .doc-title {
+            font-size: 1.8rem;
         }
-        
-        .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: var(--primary-color);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .component-card {
-                padding: 1rem;
-            }
-            
-            .button-showcase {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
+    }
     </style>
 <body>
     <!-- Header -->
@@ -199,28 +342,28 @@
         <nav class="nav-container">
             <div class="logo">Cebox Framework</div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#components">Components</a></li>
-                <li><a href="#docs">Documentation</a></li>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#components">Komponen</a></li>
+                <li><a href="#petunjuk">Dokumentasi</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main Content -->
     <main>
-        <div class="hero-section">
-            <h1>Welcome to Cebox Creative Framework</h1>
-            <p>Modern, Elegant, and Responsive Design Framework</p>
+        <div class="hero-section" id="home">
+            <h1>Selamat Datang di Cebox Creative Framework</h1>
+            <p>Framework Desain Modern, Elegan, dan Responsif</p>
         </div>
 
         <div class="container">
             <!-- Components Section -->
             <section class="demo-section" id="components">
-                <h2>Components</h2>
+                <h2>Komponen</h2>
                 
                 <!-- Buttons -->
                 <div class="component-card">
-                    <h3>Buttons</h3>
+                    <h3>Tombol</h3>
                     <div class="button-showcase">
                         <button class="cebox-btn cebox-primary">Primary Button</button>
                         <button class="cebox-btn cebox-success">Success Button</button>
@@ -230,7 +373,7 @@
 
                 <!-- Table -->
                 <div class="component-card">
-                    <h3>Tables</h3>
+                    <h3>Tabel</h3>
                     <div class="table-responsive">
                         <table class="cebox-table">
                             <thead>
@@ -257,21 +400,55 @@
                 </div>
             </section>
 
-            <!-- Documentation -->
-            <section class="documentation" id="docs">
-                <h2>Documentation</h2>
-                <div class="code-block">
-                    <pre><code>
-// Include the framework
-require_once 'src/Components/CeboxButton.php';
-
-// Create a button
-$button = new CeboxButton();
-$button->setTeks('Click Me')
-       ->setClass('cebox-btn cebox-primary');
-                    </code></pre>
+           <!-- Documentation -->
+            <div class="documentation-container" id="petunjuk">
+                <h3 class="doc-title">Panduan Penggunaan Framework Cebox</h3>
+                
+                <div class="doc-section">
+                    <h4>1. Cara Instalasi</h4>
+                    <p>Tambahkan file CSS berikut ke dalam bagian head HTML Anda:</p>
+                    <div class="code-example">
+                        <p>• cebox.css - Untuk styling dasar</p>
+                        <p>• button.css - Untuk komponen tombol</p>
+                        <p>• tables.css - Untuk komponen tabel</p>
+                    </div>
                 </div>
-            </section>
+            
+                <div class="doc-section">
+                    <h4>2. Komponen Tombol</h4>
+                    <p>Framework ini menyediakan 3 jenis tombol:</p>
+                    <ul class="feature-list">
+                        <li>Tombol Utama: Gunakan kelas "cebox-btn cebox-primary"</li>
+                        <li>Tombol Sukses: Gunakan kelas "cebox-btn cebox-success"</li>
+                        <li>Tombol Outline: Gunakan kelas "cebox-btn cebox-outline"</li>
+                    </ul>
+                </div>
+            
+                <div class="doc-section">
+                    <h4>3. Komponen Tabel</h4>
+                    <p>Buat tabel responsif dengan menggunakan kelas "cebox-table". Tabel akan menyesuaikan secara otomatis untuk tampilan mobile.</p>
+                </div>
+            
+                <div class="doc-section">
+                    <h4>4. Kelas Layout</h4>
+                    <ul class="feature-list">
+                        <li>container: Pembungkus konten utama</li>
+                        <li>nav-container: Pembungkus navigasi</li>
+                        <li>footer-content: Pembungkus bagian footer</li>
+                    </ul>
+                </div>
+            
+                <div class="doc-section">
+                    <h4>5. Desain Responsif</h4>
+                    <p>Framework ini menggunakan pendekatan mobile-first dengan breakpoint:</p>
+                    <ul class="feature-list">
+                        <li>Mobile: Hingga 768px</li>
+                        <li>Tablet: 768px hingga 992px</li>
+                        <li>Desktop: 992px ke atas</li>
+                    </ul>
+                </div>
+            </div>
+        
         </div>
     </main>
 
@@ -293,9 +470,8 @@ $button->setTeks('Click Me')
             <div class="footer-section">
                 <h4>Connect</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
