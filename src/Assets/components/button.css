@@ -1,58 +1,40 @@
-/* Button Base Styles */
 .cebox-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    gap: 0.5rem;
+    transition: all 0.3s ease;
 }
 
-/* Button Variants */
 .cebox-primary {
-    background-color: #3182ce;
-    color: white;
+    background: var(--primary-color);
+    color: var(--white);
 }
+
 .cebox-primary:hover {
-    background-color: #2c5282;
+    background: #ff5252;
+    transform: translateY(-2px);
 }
 
 .cebox-success {
-    background-color: #48bb78;
-    color: white;
+    background: var(--success-color);
+    color: var(--white);
 }
+
 .cebox-success:hover {
-    background-color: #2f855a;
+    background: #27ae60;
+    transform: translateY(-2px);
 }
 
-/* Outline Variant */
 .cebox-outline {
-    background-color: transparent;
-    border: 2px solid #3182ce;
-    color: #3182ce;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
+
 .cebox-outline:hover {
-    background-color: #3182ce;
-    color: white;
-}
-
-/* Rounded Variant */
-.cebox-rounded {
-    border-radius: 9999px;
-}
-
-/* Size Variants */
-.cebox-large {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
-}
-
-.cebox-small {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.875rem;
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
 }
