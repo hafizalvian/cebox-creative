@@ -1,0 +1,13 @@
+{
+    "name": "cebox/creative",
+    "description": "Framework UI Kreatif untuk PHP",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Cebox\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4"
+    }
+}
