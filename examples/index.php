@@ -56,9 +56,9 @@ $tabelProduk->setHeader($headerProduk)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cebox Creative Framework</title>
-    <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/cebox.css">
-    <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/components/button.css">
-    <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/components/tables.css">
+    <link rel="stylesheet" href="src/Assets/cebox.css">
+    <link rel="stylesheet" href="src/Assets/component/button.css">
+    <link rel="stylesheet" href="src/Assets/component/tables.css">
 </head>
 <body>
     <header class="header">
