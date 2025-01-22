@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebox Creative Framework</title>
+    <link rel="stylesheet" href="src/Assets/cebox.css">
+    <link rel="stylesheet" href="src/Assets/component/button.css">
+    <link rel="stylesheet" href="src/Assets/component/tables.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .demo {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .button-showcase {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .documentation {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            background: #2d3748;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cebox Creative Framework</h1>
+        
+        <section class="demo">
+            <h2>Button Components</h2>
+            <div class="button-showcase">
+                <button class="cebox-btn cebox-primary">Primary Button</button>
+                <button class="cebox-btn cebox-success">Success Button</button>
+                <button class="cebox-btn cebox-outline">Outline Button</button>
+            </div>
+        </section>
+
+        <section class="documentation">
+            <h2>Getting Started</h2>
+            <pre><code>
+// Include the framework
+require_once 'src/Components/CeboxButton.php';
+
+// Create a button
+$button = new CeboxButton();
+$button->setTeks('Click Me')
+       ->setClass('cebox-btn cebox-primary');</code></pre>
+        </section>
+    </div>
+</body>
+</html>
