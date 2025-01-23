@@ -1,803 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cebox Creative Framework</title>
-        <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/cebox.css">
-
-        <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/components/button.css">
-        <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/components/tables.css">
-
-        
-        <!-- Font Awesome for icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </head>
-    <style>
-        :root {
-        /* Main Colors */
-        --primary-red: #FF7B7B;
-        --primary-red-light: #FFB5B5;
-        --primary-red-dark: #FF5252;
-        --accent-blue: #7BB5FF;
-        --accent-blue-light: #B5D5FF;
-        --accent-blue-dark: #5296FF;
-      
-        /* Extended Button Colors */
-        --btn-purple: #B39DDB;
-        --btn-green: #81C784;
-        --btn-orange: #FFB74D;
-        --btn-pink: #F48FB1;
-        --btn-teal: #4DB6AC;
-        --btn-indigo: #7986CB;
-        --btn-cyan: #4DD0E1;
-        --btn-brown: #A1887F;
-        --btn-deep-purple: #9575CD;
-        --btn-lime: #AED581;
-        --btn-amber: #FFD54F;
-        --btn-deep-orange: #FF8A65;
-      
-        /* Neutral Colors */
-        --white: #ffffff;
-        --gray-50: #fafafa;
-        --gray-100: #f5f5f5;
-        --gray-200: #eeeeee;
-        --gray-300: #e0e0e0;
-        --gray-400: #bdbdbd;
-        --gray-500: #9e9e9e;
-        --gray-600: #757575;
-        --gray-700: #616161;
-        --gray-800: #424242;
-        --gray-900: #212121;
-      
-        /* Shadows */
-        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-        --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-      }
-      
-      /* Reset & Base Styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        font-family: 'Inter', system-ui, sans-serif;
-        line-height: 1.6;
-        color: var(--gray-800);
-        background-color: var(--gray-50);
-      }
-      
-      /* Container */
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-      }
-      
-      /* Header & Navigation */
-      .cebox-header {
-        background: var(--white);
-        box-shadow: var(--shadow-md);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
-      
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      
-      .logo {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--primary-red);
-        text-transform: uppercase;
-      }
-      
-      .nav-menu {
-        display: flex;
-        gap: 2.5rem;
-        list-style: none;
-      }
-      
-      .nav-menu a {
-        text-decoration: none;
-        color: var(--gray-700);
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-      
-      .nav-menu a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-red);
-        transition: width 0.3s ease;
-      }
-      
-      .nav-menu a:hover::after {
-        width: 100%;
-      }
-      
-      /* Hero Section */
-      .hero-section {
-        background: var(--primary-red);
-        padding: 10rem 2rem 8rem;
-        text-align: center;
-        color: var(--white);
-        }
-    
-        .hero-section h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-    
-        .hero-section p {
-            font-size: 1.25rem;
-            color: var(--white);
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-      
-      /* Component Card */
-      .component-card {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 2.5rem;
-        margin: 2rem 0;
-        box-shadow: var(--shadow-lg);
-      }
-      
-      .component-card h3 {
-        color: var(--primary-red);
-        margin-bottom: 2rem;
-        font-size: 1.75rem;
-      }
-      
-      /* Demo Section Heading */
-    .demo-section h2 {
-        font-size: 2.5rem;
-        color: var(--primary-red);
-        margin: 3rem 0 2rem;
-        padding-bottom: 1rem;
-        position: relative;
-        text-align: center;
-    }
-    
-    .demo-section h2::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 3px;
-        background: var(--accent-blue);
-        border-radius: 2px;
-    }
-    
-    
-    /* Struktur Dasar Tombol */
-    .button-showcase {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    
-    .button-group {
-      margin: 40px 0;
-    }
-    
-    .button-group h4 {
-      color: var(--gray-700);
-      margin-bottom: 24px;
-      text-align: left;
-      font-size: 19px;
-    }
-    
-    /* Gaya Dasar Tombol */
-    .cebox-btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    /* Ukuran Tombol */
-    .cebox-btn.cebox-small {
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-    
-    .cebox-btn.cebox-large {
-      padding: 16px 32px;
-      font-size: 18px;
-    }
-    
-    /* Tombol Ukuran Kecil */
-    .cebox-btn.cebox-primary.cebox-small,
-    .cebox-btn.cebox-primary.cebox-small:hover {
-      background: var(--btn-indigo);
-      color: var(--white);
-    }
-    
-    .cebox-btn.cebox-success.cebox-small,
-    .cebox-btn.cebox-success.cebox-small:hover {
-      background: var(--btn-green);
-      color: var(--white);
-    }
-    
-    .cebox-btn.cebox-outline.cebox-small,
-    .cebox-btn.cebox-outline.cebox-small:hover {
-      background: transparent;
-      border: 2px solid var(--btn-purple);
-      color: var(--btn-purple);
-    }
-    
-    .cebox-btn.cebox-rounded.cebox-small,
-    .cebox-btn.cebox-rounded.cebox-small:hover {
-      background: var(--btn-cyan);
-      color: var(--white);
-      border-radius: 25px;
-    }
-    
-    .cebox-btn.cebox-glass.cebox-small,
-    .cebox-btn.cebox-glass.cebox-small:hover {
-      background: rgba(77, 208, 225, 0.25);
-      color: var(--btn-cyan);
-      border: 1px solid rgba(77, 208, 225, 0.3);
-    }
-    
-    .cebox-btn.cebox-neon.cebox-small,
-    .cebox-btn.cebox-neon.cebox-small:hover {
-      background: var(--btn-pink);
-      color: var(--white);
-      box-shadow: 0 0 10px rgba(244, 143, 177, 0.4);
-    }
-    
-    .cebox-btn.cebox-3d.cebox-small,
-    .cebox-btn.cebox-3d.cebox-small:hover {
-      background: var(--btn-amber);
-      color: var(--gray-800);
-      border-bottom: 4px solid #FFC107;
-    }
-    
-    /* Tombol Ukuran Sedang */
-    .cebox-btn.cebox-primary,
-    .cebox-btn.cebox-primary:hover {
-      background: var(--primary-red);
-      color: var(--white);
-    }
-    
-    .cebox-btn.cebox-success,
-    .cebox-btn.cebox-success:hover {
-      background: var(--btn-teal);
-      color: var(--white);
-    }
-    
-    .cebox-btn.cebox-outline,
-    .cebox-btn.cebox-outline:hover {
-      background: transparent;
-      border: 2px solid var(--btn-deep-purple);
-      color: var(--btn-deep-purple);
-    }
-    
-    .cebox-btn.cebox-rounded,
-    .cebox-btn.cebox-rounded:hover {
-      background: var(--btn-orange);
-      color: var(--white);
-      border-radius: 25px;
-    }
-    
-    .cebox-btn.cebox-glass,
-    .cebox-btn.cebox-glass:hover {
-      background: rgba(255, 183, 77, 0.25);
-      color: var(--btn-orange);
-      border: 1px solid rgba(255, 183, 77, 0.3);
-    }
-    
-    .cebox-btn.cebox-neon,
-    .cebox-btn.cebox-neon:hover {
-      background: var(--btn-deep-orange);
-      color: var(--white);
-      box-shadow: 0 0 10px rgba(255, 138, 101, 0.4);
-    }
-    
-    .cebox-btn.cebox-3d,
-    .cebox-btn.cebox-3d:hover {
-      background: var(--btn-lime);
-      color: var(--gray-800);
-      border-bottom: 4px solid #9CCC65;
-    }
-    
-    /* Tombol Ukuran Besar */
-    .cebox-btn.cebox-primary.cebox-large,
-    .cebox-btn.cebox-primary.cebox-large:hover {
-      background: var(--btn-brown);
-      color: var(--white);
-    }
-    
-    .cebox-btn.cebox-success.cebox-large,
-    .cebox-btn.cebox-success.cebox-large:hover {
-      background: var(--accent-blue);
-      color: var(--white);
-    }
-    
-    .cebox-btn.cebox-outline.cebox-large,
-    .cebox-btn.cebox-outline.cebox-large:hover {
-      background: transparent;
-      border: 2px solid var(--btn-deep-orange);
-      color: var(--btn-deep-orange);
-    }
-    
-    .cebox-btn.cebox-rounded.cebox-large,
-    .cebox-btn.cebox-rounded.cebox-large:hover {
-      background: var(--btn-purple);
-      color: var(--white);
-      border-radius: 25px;
-    }
-    
-    .cebox-btn.cebox-glass.cebox-large,
-    .cebox-btn.cebox-glass.cebox-large:hover {
-      background: rgba(179, 157, 219, 0.25);
-      color: var(--btn-purple);
-      border: 1px solid rgba(179, 157, 219, 0.3);
-    }
-    
-    .cebox-btn.cebox-neon.cebox-large,
-    .cebox-btn.cebox-neon.cebox-large:hover {
-      background: var(--btn-indigo);
-      color: var(--white);
-      box-shadow: 0 0 10px rgba(121, 134, 203, 0.4);
-    }
-    
-    .cebox-btn.cebox-3d.cebox-large,
-    .cebox-btn.cebox-3d.cebox-large:hover {
-      background: var(--primary-red);
-      color: var(--white);
-      border-bottom: 4px solid var(--primary-red-dark);
-    }
-    
-      /* Table Styles */
-      .table-responsive {
-        overflow-x: auto;
-        margin: 2rem 0;
-      }
-      
-      .cebox-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: var(--white);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: var(--shadow-md);
-      }
-      
-      .cebox-table thead {
-        background: linear-gradient(45deg, var(--primary-red), var(--accent-blue));
-        color: var(--white);
-      }
-      
-      .cebox-table th {
-        padding: 1.25rem;
-        text-align: left;
-        font-weight: 600;
-      }
-      
-      .cebox-table td {
-        padding: 1.25rem;
-        border-bottom: 1px solid var(--gray-200);
-      }
-      
-      .cebox-table tbody tr:hover {
-        background-color: var(--gray-50);
-      }
-      
-      /* Documentation Styles */
-      .documentation-container {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 3rem;
-        box-shadow: var(--shadow-lg);
-        margin: 3rem 0;
-      }
-      
-      .doc-title {
-        color: var(--primary-red);
-        margin-bottom: 2rem;
-        font-size: 2rem;
-      }
-      
-      .doc-section {
-        margin: 2.5rem 0;
-        padding: 2rem;
-        background: var(--gray-50);
-        border-radius: 12px;
-        border-left: 4px solid var(--primary-red);
-      }
-      
-      .doc-section h4 {
-        color: var(--gray-800);
-        margin-bottom: 1rem;
-        font-size: 1.25rem;
-      }
-      
-      .feature-list {
-        list-style: none;
-        margin: 1rem 0;
-      }
-      
-      .feature-list li {
-        margin: 0.5rem 0;
-        padding-left: 1.5rem;
-        position: relative;
-      }
-      
-      .feature-list li::before {
-        content: '•';
-        color: var(--primary-red);
-        position: absolute;
-        left: 0;
-      }
-      
-      /* Code Preview */
-      .code-preview {
-        background: var(--gray-900);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        overflow-x: auto;
-      }
-      
-      .code-preview code {
-        color: var(--gray-200);
-        font-family: 'Fira Code', monospace;
-      }
-      
-      /* Footer Styles */
-      .cebox-footer {
-        background: var(--gray-900);
-        color: var(--white);
-        padding: 4rem 0 1rem;
-        margin-top: 4rem;
-      }
-      
-      .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-      }
-      
-      .footer-section h4 {
-        color: var(--primary-red-light);
-        margin-bottom: 1.5rem;
-      }
-      
-      .footer-section ul {
-        list-style: none;
-      }
-      
-      .footer-section ul li {
-        margin: 0.75rem 0;
-      }
-      
-      .footer-section a {
-        color: var(--gray-400);
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-      
-      .footer-section a:hover {
-        color: var(--primary-red-light);
-      }
-      
-      .social-links {
-        display: flex;
-        gap: 1.5rem;
-        font-size: 1.5rem;
-      }
-      
-      .footer-bottom {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid var(--gray-800);
-      }
-      
-      /* Mobile Menu Button */
-      .mobile-menu-btn {
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
-        padding: 0.5rem;
-      }
-      
-      .mobile-menu-btn span {
-        width: 25px;
-        height: 2px;
-        background: var(--primary-red);
-        transition: 0.3s ease;
-      }
-      
-      /* Responsive Design */
-      @media (max-width: 992px) {
-        .hero-section h1 {
-          font-size: 2.5rem;
-        }
-      }
-      
-      @media (max-width: 768px) {
-        .mobile-menu-btn {
-          display: flex;
-        }
-        
-        .nav-menu {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: var(--white);
-          padding: 1rem;
-          box-shadow: var(--shadow-md);
-          flex-direction: column;
-          gap: 1rem;
-        }
-        
-        .nav-menu.active {
-          display: flex;
-        }
-        
-        .button-showcase {
-          flex-direction: column;
-        }
-        
-        .documentation-container {
-          padding: 2rem;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        .hero-section {
-          padding: 8rem 1rem 6rem;
-        }
-        
-        .hero-section h1 {
-          font-size: 2rem;
-        }
-        
-        .component-card {
-          padding: 1.5rem;
-        }
-        
-        .doc-section {
-          padding: 1.5rem;
-        }
-      }
-    </style>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebox Creative Framework</title>
+    <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/ceboxdes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 <body>
-    <!-- Header -->
-    <div class="mobile-menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
     <header class="cebox-header">
         <nav class="nav-container">
             <div class="logo">Cebox Framework</div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-menu">
                 <li><a href="#home">Beranda</a></li>
-                <li><a href="#components">Komponen</a></li>
-                <li><a href="#petunjuk">Dokumentasi</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="/cebox-creative/examples">Contoh</a></li>
+                <li><a href="#docs">Dokumentasi</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <div class="hero-section" id="home">
+        <section class="hero-section" id="home">
             <h1>Selamat Datang di Cebox Creative Framework</h1>
             <p>Framework Desain Modern, Elegan, dan Responsif</p>
-        </div>
+            <div class="hero-buttons">
+                <a href="#getting-started" class="cebox-btn cebox-primary">Mulai Sekarang</a>
+                <a href="/cebox-creative/examples" class="cebox-btn cebox-outline">Lihat Contoh</a>
+            </div>
+        </section>
 
-        <div class="container">
-            <!-- Components Section -->
-            <section class="demo-section" id="components">
-                <h2>Komponen</h2>
-                
-                <!-- Buttons -->
-                <div class="component-card">
-                    <h3>Tombol</h3>
-                    
-                    <!-- Small Buttons -->
-                    <div class="button-group">
-                        <h4>Tombol Kecil</h4>
-                        <div class="button-showcase">
-                            <button class="cebox-btn cebox-primary cebox-small">Primary</button>
-                            <button class="cebox-btn cebox-success cebox-small">Success</button>
-                            <button class="cebox-btn cebox-outline cebox-small">Outline</button>
-                            <button class="cebox-btn cebox-rounded cebox-small">Rounded</button>
-                            <button class="cebox-btn cebox-glass cebox-small">Glass</button>
-                            <button class="cebox-btn cebox-neon cebox-small">Neon</button>
-                            <button class="cebox-btn cebox-3d cebox-small">3D</button>
-                            <button class="cebox-btn cebox-primary cebox-small">➔ Icon</button>
-                        </div>
+        <section class="features" id="features">
+            <div class="container">
+                <h2>Mengapa Memilih Cebox?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Desain Responsif</h3>
+                        <p>Tampilan sempurna di semua perangkat</p>
                     </div>
-                
-                    <!-- Medium Buttons -->
-                    <div class="button-group">
-                        <h4>Tombol Sedang</h4>
-                        <div class="button-showcase">
-                            <button class="cebox-btn cebox-primary">Primary</button>
-                            <button class="cebox-btn cebox-success">Success</button>
-                            <button class="cebox-btn cebox-outline">Outline</button>
-                            <button class="cebox-btn cebox-rounded">Rounded</button>
-                            <button class="cebox-btn cebox-glass">Glass</button>
-                            <button class="cebox-btn cebox-neon">Neon</button>
-                            <button class="cebox-btn cebox-3d">3D</button>
-                            <button class="cebox-btn cebox-primary">➔ Icon</button>
-                        </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Ringan</h3>
+                        <p>Dioptimalkan untuk performa terbaik</p>
                     </div>
-                
-                    <!-- Large Buttons -->
-                    <div class="button-group">
-                        <h4>Tombol Besar</h4>
-                        <div class="button-showcase">
-                            <button class="cebox-btn cebox-primary cebox-large">Primary</button>
-                            <button class="cebox-btn cebox-success cebox-large">Success</button>
-                            <button class="cebox-btn cebox-outline cebox-large">Outline</button>
-                            <button class="cebox-btn cebox-rounded cebox-large">Rounded</button>
-                            <button class="cebox-btn cebox-glass cebox-large">Glass</button>
-                            <button class="cebox-btn cebox-neon cebox-large">Neon</button>
-                            <button class="cebox-btn cebox-3d cebox-large">3D</button>
-                            <button class="cebox-btn cebox-primary cebox-large">➔ Icon</button>
-                        </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Mudah Digunakan</h3>
+                        <p>API yang sederhana dan intuitif</p>
                     </div>
-                </div>
-                <div class="code-preview">
-                    <pre><code>$tombol->setClass('cebox-btn cebox-primary')->setTeks('Tombol Primary');</code></pre>
-                </div>
-
-
-                <!-- Table -->
-                <div class="component-card">
-                    <h3>Tabel</h3>
-                    <div class="table-responsive">
-                        <table class="cebox-table">
-                            <thead>
-                                <tr>
-                                    <th>Header 1</th>
-                                    <th>Header 2</th>
-                                    <th>Header 3</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Data 1</td>
-                                    <td>Data 2</td>
-                                    <td>Data 3</td>
-                                </tr>
-                                <tr>
-                                    <td>Data 4</td>
-                                    <td>Data 5</td>
-                                    <td>Data 6</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="code-preview">
-                    <pre><code>$tabel->setClass('cebox-table')->setHeader($header)->setData($data);</code></pre>
-                </div>
-                
-                <div class="code-preview">
-                    <pre><code>$tabel->setClass('cebox-table cebox-striped')->setHeader($header)->setData($data);</code></pre>
-                </div>
-                
-                <div class="code-preview">
-                    <pre><code>$tabel->setClass('cebox-table cebox-hover')->setHeader($header)->setData($data);</code></pre>
-                </div>
-                
-                <div class="code-preview">
-                    <pre><code>$tabel->setClass('cebox-table cebox-bordered')->setHeader($header)->setData($data);</code></pre>
-                </div>
-            </section>
-
-           <!-- Documentation -->
-            <div class="documentation-container" id="petunjuk">
-                <h3 class="doc-title">Panduan Penggunaan Framework Cebox</h3>
-                
-                <div class="doc-section">
-                    <h4>1. Cara Instalasi</h4>
-                    <p>Tambahkan file CSS berikut ke dalam bagian head HTML Anda:</p>
-                    <div class="code-example">
-                        <p>• cebox.css - Untuk styling dasar</p>
-                        <p>• button.css - Untuk komponen tombol</p>
-                        <p>• tables.css - Untuk komponen tabel</p>
-                    </div>
-                </div>
-            
-                <div class="doc-section">
-                    <h4>2. Komponen Tombol</h4>
-                    <p>Framework ini menyediakan 3 jenis tombol:</p>
-                    <ul class="feature-list">
-                        <li>Tombol Utama: Gunakan kelas "cebox-btn cebox-primary"</li>
-                        <li>Tombol Sukses: Gunakan kelas "cebox-btn cebox-success"</li>
-                        <li>Tombol Outline: Gunakan kelas "cebox-btn cebox-outline"</li>
-                    </ul>
-                </div>
-            
-                <div class="doc-section">
-                    <h4>3. Komponen Tabel</h4>
-                    <p>Buat tabel responsif dengan menggunakan kelas "cebox-table". Tabel akan menyesuaikan secara otomatis untuk tampilan mobile.</p>
-                </div>
-            
-                <div class="doc-section">
-                    <h4>4. Kelas Layout</h4>
-                    <ul class="feature-list">
-                        <li>container: Pembungkus konten utama</li>
-                        <li>nav-container: Pembungkus navigasi</li>
-                        <li>footer-content: Pembungkus bagian footer</li>
-                    </ul>
-                </div>
-            
-                <div class="doc-section">
-                    <h4>5. Desain Responsif</h4>
-                    <p>Framework ini menggunakan pendekatan mobile-first dengan breakpoint:</p>
-                    <ul class="feature-list">
-                        <li>Mobile: Hingga 768px</li>
-                        <li>Tablet: 768px hingga 992px</li>
-                        <li>Desktop: 992px ke atas</li>
-                    </ul>
                 </div>
             </div>
+        </section>
+
+        <section class="getting-started" id="getting-started">
+            <div class="container">
+                <h2>Cara Memulai</h2>
+                <p class="section-desc">Ikuti langkah-langkah berikut untuk mengintegrasikan Cebox Framework ke dalam proyek Anda.</p>
+                
+                <div class="step">
+                    <h3>1. Tambahkan CSS Framework</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">
+                            <i class="fas fa-copy" aria-hidden="true"></i>
+                        </button>
+                        <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative/src/Assets/cebox.css"&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative/src/Assets/components/button.css"&gt;</code></pre>
+                    </div>
+                </div>
         
-        </div>
+                <div class="step">
+                    <h3>2. Mulai Membangun</h3>
+                    <p>Lihat <a href="/examples">contoh</a> dan dokumentasi kami untuk memulai membuat tampilan yang menarik.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
     <footer class="cebox-footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Cebox Framework</h4>
-                <p>Modern and elegant design framework for professional web development</p>
+                <p>Framework desain modern dan elegan</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4>Tautan Cepat</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#components">Components</a></li>
-                    <li><a href="#docs">Documentation</a></li>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="/cebox-creative/examples">Contoh</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connect</h4>
+                <h4>Sosial Media</h4>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-tiktok"></i></a>
@@ -805,21 +106,36 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span class="current-year"></span> Cebox Framework. All rights reserved.</p>
+            <p>&copy; <span class="current-year"></span> Cebox Framework. Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
+    <!--Javascript-->
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-        });
-
-        // Dynamic Footer Year
+        function copyCode(button) {
+        const pre = button.nextElementSibling;
+        const code = pre.querySelector('code');
+        const text = code.innerText;
+        
+        navigator.clipboard.writeText(text);
+        
+        button.classList.add('copied');
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        
+        setTimeout(() => {
+            button.classList.remove('copied');
+            button.innerHTML = '<i class="fas fa-copy"></i>';
+        }, 2000);
+    }
         document.addEventListener('DOMContentLoaded', function() {
-            const yearSpan = document.querySelector('.current-year');
-            yearSpan.textContent = new Date().getFullYear();
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
+    });
     </script>
 </body>
 </html>
