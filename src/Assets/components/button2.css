@@ -1,0 +1,142 @@
+:root {
+    /* Color System */
+    --primary-color: #2563eb;    /* Blue */
+    --success-color: #10B981;    /* Green */
+    --warning-color: #F59E0B;    /* Orange */
+    --danger-color: #EF4444;     /* Red */
+    --info-color: #3B82F6;       /* Light Blue */
+  }
+  
+  /* Base Button Styles */
+  .cebox-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  /* Color Variants */
+  .cebox-btn.cebox-primary {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .cebox-btn.cebox-success {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  .cebox-btn.cebox-warning {
+    background-color: var(--warning-color);
+    color: white;
+  }
+  
+  .cebox-btn.cebox-danger {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  
+  .cebox-btn.cebox-info {
+    background-color: var(--info-color);
+    color: white;
+  }
+  
+  /* Size Variants */
+  .cebox-btn.cebox-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .cebox-btn.cebox-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Style Variants */
+  .cebox-btn.cebox-outline {
+    background: transparent;
+    border: 2px solid currentColor;
+  }
+  
+  .cebox-btn.cebox-outline.cebox-primary { color: var(--primary-color); }
+  .cebox-btn.cebox-outline.cebox-success { color: var(--success-color); }
+  .cebox-btn.cebox-outline.cebox-warning { color: var(--warning-color); }
+  .cebox-btn.cebox-outline.cebox-danger { color: var(--danger-color); }
+  .cebox-btn.cebox-outline.cebox-info { color: var(--info-color); }
+  
+  .cebox-btn.cebox-rounded {
+    border-radius: 50px;
+  }
+  
+  /* Glass Button */
+.cebox-btn.cebox-glass {
+    background: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+  
+  @supports not (backdrop-filter: blur(10px)) {
+    .cebox-btn.cebox-glass {
+      background: rgba(255, 255, 255, 0.8);
+    }
+  }
+  
+  /* Neon Button */
+.cebox-btn.cebox-neon {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px currentColor;
+    text-shadow: 0 0 5px currentColor;
+    color: #ffffff;
+    border: 1px solid currentColor;
+}
+
+.cebox-btn.cebox-neon.cebox-primary { border-color: var(--primary-color); }
+.cebox-btn.cebox-neon.cebox-success { border-color: var(--success-color); }
+.cebox-btn.cebox-neon.cebox-warning { border-color: var(--warning-color); }
+.cebox-btn.cebox-neon.cebox-danger { border-color: var(--danger-color); }
+.cebox-btn.cebox-neon.cebox-info { border-color: var(--info-color); }
+  
+  .cebox-btn.cebox-3d {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Hover Effects */
+  .cebox-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+  }
+  
+  .cebox-btn.cebox-3d:hover {
+    transform: translateY(-6px);
+  }
+  
+  .cebox-btn.cebox-outline:hover {
+    background: currentColor;
+    color: white;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .cebox-btn {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    
+    .cebox-btn.cebox-large {
+      padding: 0.9rem 1.8rem;
+      font-size: 1.1rem;
+    }
+  }
+  
