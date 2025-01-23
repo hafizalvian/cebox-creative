@@ -4,340 +4,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cebox Creative Framework</title>
-        <link rel="stylesheet" href="https://balebatsnacks.com//src/Assets/cebox.css">
+        <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/cebox.css">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/components/button.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hafizalvian/cebox-creative@master/src/Assets/components/tables.css">
+        <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/components/button.css">
+        <link rel="stylesheet" href="http://localhost/cebox-creative/src/Assets/components/tables.css">
 
         
         <!-- Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
-    <style>
-    :root {
-    /* Soft Green Color Palette */
-    --primary-color: #4CAF50;     /* Main Green */
-    --primary-light: #81C784;     /* Light Green */
-    --primary-dark: #388E3C;      /* Dark Green */
-    --primary-pale: #E8F5E9;      /* Pale Green */
-    --text-color: #2E7D32;        /* Text Green */
-    --light-bg: #F1F8E9;          /* Background Green */
-    --white: #ffffff;
-    --shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
-    }
-    
-    /* Reset & Base Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--light-bg);
-    }
-    
-    /* Header Styles */
-    .cebox-header {
-        background: var(--white);
-        box-shadow: var(--shadow);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-    }
-    
-    .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo {
-        font-size: 1.8rem;
-        font-weight: bold;
-        color: var(--primary-color);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    
-    .nav-menu {
-        display: flex;
-        gap: 2.5rem;
-        list-style: none;
-    }
-    
-    .nav-menu a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-    
-    .nav-menu a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: width 0.3s ease;
-    }
-    
-    .nav-menu a:hover::after {
-        width: 100%;
-    }
-    
-    /* Hero Section */
-    .hero-section {
-        background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-        padding: 6rem 2rem;
-        text-align: center;
-        color: var(--white);
-        margin-top:30px;
-    }
-    
-    .hero-section h1 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    /* Component Section Styles */
-    .demo-section {
-        padding: 3rem 0;
-    }
-    
-    .demo-section h2 {
-        color: var(--primary-dark);
-        font-size: 2rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        position: relative;
-    }
-    
-    .demo-section h2::after {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 3px;
-        background: var(--primary-color);
-        margin: 1rem auto;
-    }
-    
-    .component-card h3 {
-        color: var(--primary-color);
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-    
-    /* Component Cards */
-    .component-card {
-        background: var(--white);
-        border-radius: 12px;
-        padding: 2rem;
-        margin: 1.5rem 0;
-        box-shadow: var(--shadow);
-        transition: transform 0.3s ease;
-    }
-    
-    .component-card:hover {
-        transform: translateY(-5px);
-    }
-    
-    .button-showcase {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 1.5rem 0;
-    }
-    
-    /* Documentation Styles */
-    .documentation-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        padding: 2.5rem;
-        background: var(--white);
-        border-radius: 16px;
-        box-shadow: var(--shadow);
-        margin: 2rem auto;
-    }
-    
-    .doc-title {
-        color: var(--primary-dark);
-        font-size: 2.2rem;
-        margin-bottom: 3rem;
-        text-align: center;
-        border-bottom: 3px solid var(--primary-light);
-        padding-bottom: 1rem;
-        grid-column: 1 / -1;
-    }
-    
-    .doc-section {
-        background: var(--primary-pale);
-        padding: 2rem;
-        border-radius: 12px;
-        border-left: 4px solid var(--primary-color);
-        min-height: 250px;
-        transition: all 0.3s ease;
-    }
-    
-    .doc-section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(76, 175, 80, 0.15);
-    }
-    
-    /* Footer Styles */
-    .cebox-footer {
-        background: var(--primary-dark);
-        color: var(--white);
-        padding: 4rem 0 1rem;
-        margin-top: 4rem;
-    }
-    
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-    }
-    
-    .footer-section h4 {
-        color: var(--primary-light);
-        font-size: 1.3rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .footer-section ul {
-        list-style: none;
-        padding: 0;
-    }
-    
-    .footer-section ul li {
-        margin-bottom: 1rem;
-    }
-    
-    .footer-section ul li a {
-        color: var(--primary-pale);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        display: inline-block;
-    }
-    
-    .footer-section ul li a:hover {
-        color: var(--white);
-        transform: translateX(5px);
-    }
-    
-    /* Footer Bottom */
-    .footer-bottom {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 3rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .footer-bottom p {
-        color: var(--primary-pale);
-        font-size: 0.9rem;
-    }
-
-    
-    .social-links {
-        display: flex;
-        gap: 1.5rem;
-        font-size: 1.8rem;
-    }
-    
-    .social-links a {
-        color: var(--primary-light);
-        transition: transform 0.3s ease;
-    }
-    
-    .social-links a:hover {
-        transform: scale(1.2);
-        color: var(--white);
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 992px) {
-        .documentation-container {
-            padding: 1.5rem;
-        }
-        
-        .hero-section h1 {
-            font-size: 2rem;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .nav-menu {
-            position: fixed;
-            top: 60px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 60px);
-            background: var(--white);
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            transition: left 0.3s ease;
-        }
-    
-        .nav-menu.active {
-            left: 0;
-        }
-    
-        .doc-section {
-            min-height: auto;
-        }
-    
-        .button-showcase button {
-            width: 100%;
-        }
-        
-        .demo-section h2 {
-        font-size: 1.8rem;
-        }
-        
-        .component-card h3 {
-            font-size: 1.3rem;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .logo {
-            font-size: 1.4rem;
-        }
-    
-        .hero-section {
-            padding: 4rem 1rem;
-        }
-    
-        .hero-section h1 {
-            font-size: 1.8rem;
-        }
-    
-        .doc-title {
-            font-size: 1.8rem;
-        }
-    }
-    </style>
 <body>
     <!-- Header -->
+    <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
     <header class="cebox-header">
         <nav class="nav-container">
             <div class="logo">Cebox Framework</div>
@@ -364,12 +47,56 @@
                 <!-- Buttons -->
                 <div class="component-card">
                     <h3>Tombol</h3>
-                    <div class="button-showcase">
-                        <button class="cebox-btn cebox-primary">Primary Button</button>
-                        <button class="cebox-btn cebox-success">Success Button</button>
-                        <button class="cebox-btn cebox-outline">Outline Button</button>
+                    
+                    <!-- Small Buttons -->
+                    <div class="button-group">
+                        <h4>Tombol Kecil</h4>
+                        <div class="button-showcase">
+                            <button class="cebox-btn cebox-primary cebox-small">Primary</button>
+                            <button class="cebox-btn cebox-success cebox-small">Success</button>
+                            <button class="cebox-btn cebox-outline cebox-small">Outline</button>
+                            <button class="cebox-btn cebox-rounded cebox-small">Rounded</button>
+                            <button class="cebox-btn cebox-glass cebox-small">Glass</button>
+                            <button class="cebox-btn cebox-neon cebox-small">Neon</button>
+                            <button class="cebox-btn cebox-3d cebox-small">3D</button>
+                            <button class="cebox-btn cebox-primary cebox-small">➔ Icon</button>
+                        </div>
+                    </div>
+                
+                    <!-- Medium Buttons -->
+                    <div class="button-group">
+                        <h4>Tombol Sedang</h4>
+                        <div class="button-showcase">
+                            <button class="cebox-btn cebox-primary">Primary</button>
+                            <button class="cebox-btn cebox-success">Success</button>
+                            <button class="cebox-btn cebox-outline">Outline</button>
+                            <button class="cebox-btn cebox-rounded">Rounded</button>
+                            <button class="cebox-btn cebox-glass">Glass</button>
+                            <button class="cebox-btn cebox-neon">Neon</button>
+                            <button class="cebox-btn cebox-3d">3D</button>
+                            <button class="cebox-btn cebox-primary">➔ Icon</button>
+                        </div>
+                    </div>
+                
+                    <!-- Large Buttons -->
+                    <div class="button-group">
+                        <h4>Tombol Besar</h4>
+                        <div class="button-showcase">
+                            <button class="cebox-btn cebox-primary cebox-large">Primary</button>
+                            <button class="cebox-btn cebox-success cebox-large">Success</button>
+                            <button class="cebox-btn cebox-outline cebox-large">Outline</button>
+                            <button class="cebox-btn cebox-rounded cebox-large">Rounded</button>
+                            <button class="cebox-btn cebox-glass cebox-large">Glass</button>
+                            <button class="cebox-btn cebox-neon cebox-large">Neon</button>
+                            <button class="cebox-btn cebox-3d cebox-large">3D</button>
+                            <button class="cebox-btn cebox-primary cebox-large">➔ Icon</button>
+                        </div>
                     </div>
                 </div>
+                <div class="code-preview">
+                    <pre><code>$tombol->setClass('cebox-btn cebox-primary')->setTeks('Tombol Primary');</code></pre>
+                </div>
+
 
                 <!-- Table -->
                 <div class="component-card">
@@ -397,6 +124,22 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+
+                <div class="code-preview">
+                    <pre><code>$tabel->setClass('cebox-table')->setHeader($header)->setData($data);</code></pre>
+                </div>
+                
+                <div class="code-preview">
+                    <pre><code>$tabel->setClass('cebox-table cebox-striped')->setHeader($header)->setData($data);</code></pre>
+                </div>
+                
+                <div class="code-preview">
+                    <pre><code>$tabel->setClass('cebox-table cebox-hover')->setHeader($header)->setData($data);</code></pre>
+                </div>
+                
+                <div class="code-preview">
+                    <pre><code>$tabel->setClass('cebox-table cebox-bordered')->setHeader($header)->setData($data);</code></pre>
                 </div>
             </section>
 
@@ -476,8 +219,21 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Cebox Framework. All rights reserved.</p>
+            <p>&copy; <span class="current-year"></span> Cebox Framework. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Dynamic Footer Year
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearSpan = document.querySelector('.current-year');
+            yearSpan.textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
